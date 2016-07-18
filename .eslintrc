@@ -1,0 +1,4 @@
+env:
+  amd: true
+  shared-node-browser: true
+extends: pwn-es5
