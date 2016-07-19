@@ -3,3 +3,5 @@ env:
   browser : true
   node: true
 extends: pwn-es5
+rules:
+  max-len: off
