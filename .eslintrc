@@ -1,6 +1,6 @@
 env:
   amd: true
-  browser : true
+  browser: true
   node: true
 extends: pwn-es5
 rules:
