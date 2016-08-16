@@ -16,9 +16,7 @@
 
     _.noConflict = function noConflict( deep ) {
         root._ = prev._
-        if ( deep ) {
-            root.U = prev.U
-        }
+        deep && ( root.U = prev.U )
         return _
     }
 
