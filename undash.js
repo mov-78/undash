@@ -46,6 +46,7 @@
     _.isFunction = _.flow( _.tag , _.equal( 'function' ) )
     _.isGenerator = _.flow( _.tag , _.equal( 'generatorfunction' ) )
     _.isDate = _.flow( _.tag , _.equal( 'date' ) )
+    _.isRegex = _.flow( _.tag , _.equal( 'regexp' ) )
 
     return _
 
