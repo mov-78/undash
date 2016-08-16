@@ -43,6 +43,7 @@
     _.isBoolean = _.flow( _.tag , _.equal( 'boolean' ) )
     _.isObject = _.flow( _.tag , _.equal( 'object' ) )
     _.isArray = _.flow( _.tag , _.equal( 'array' ) )
+    _.isFunction = _.flow( _.tag , _.equal( 'function' ) )
 
     return _
 
