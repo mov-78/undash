@@ -45,6 +45,7 @@
     _.isArray = _.flow( _.tag , _.equal( 'array' ) )
     _.isFunction = _.flow( _.tag , _.equal( 'function' ) )
     _.isGenerator = _.flow( _.tag , _.equal( 'generatorfunction' ) )
+    _.isDate = _.flow( _.tag , _.equal( 'date' ) )
 
     return _
 
