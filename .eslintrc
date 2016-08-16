@@ -1,7 +1,6 @@
-env:
-  amd: true
-  browser: true
-  node: true
-extends: pwn-es5
-rules:
-  max-len: off
+env :
+    amd : true
+    browser : true
+extends : pwn-es5
+rules :
+    func-style : off
