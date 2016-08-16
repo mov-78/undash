@@ -42,6 +42,10 @@
         return _.tag( value ) === 'number'
     }
 
+    _.isString = function isString( value ) {
+        return _.tag( value ) === 'string'
+    }
+
     return _
 
 } )
