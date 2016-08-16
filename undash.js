@@ -38,6 +38,10 @@
 
     }
 
+    _.isNumber = function isNumber( value ) {
+        return _.tag( value ) === 'number'
+    }
+
     return _
 
 } )
