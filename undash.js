@@ -48,6 +48,10 @@
     _.isGenerator = _.flow( _.tag , _.equal( 'generatorfunction' ) )
     _.isDate = _.flow( _.tag , _.equal( 'date' ) )
     _.isRegex = _.flow( _.tag , _.equal( 'regexp' ) )
+    _.isSet = _.flow( _.tag , _.equal( 'set' ) )
+    _.isWeakSet = _.flow( _.tag , _.equal( 'weakset' ) )
+    _.isMap = _.flow( _.tag , _.equal( 'map' ) )
+    _.isWeakMap = _.flow( _.tag , _.equal( 'weakmap' ) )
 
     return _
 
