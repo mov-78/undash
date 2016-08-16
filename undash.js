@@ -38,13 +38,13 @@
 
     }
 
-    _.isNumber = function isNumber( value ) {
-        return _.tag( value ) === 'number'
-    }
-
-    _.isString = function isString( value ) {
-        return _.tag( value ) === 'string'
-    }
+    _.isNull = _.flow( _.tag , _.equal( 'null' ) )
+    _.isUndefined = _.flow( _.tag , _.equal( 'undefined' ) )
+    _.isNumber = _.flow( _.tag , _.equal( 'number' ) )
+    _.isString = _.flow( _.tag , _.equal( 'string' ) )
+    _.isBoolean = _.flow( _.tag , _.equal( 'boolean' ) )
+    _.isObject = _.flow( _.tag , _.equal( 'object' ) )
+    _.isArray = _.flow( _.tag , _.equal( 'array' ) )
 
     return _
 
