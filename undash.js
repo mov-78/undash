@@ -41,6 +41,7 @@
     _.isNumber = _.flow( _.tag , _.equal( 'number' ) )
     _.isString = _.flow( _.tag , _.equal( 'string' ) )
     _.isBoolean = _.flow( _.tag , _.equal( 'boolean' ) )
+    _.isSymbol = _.flow( _.tag , _.equal( 'symbol' ) )
     _.isObject = _.flow( _.tag , _.equal( 'object' ) )
     _.isArray = _.flow( _.tag , _.equal( 'array' ) )
     _.isFunction = _.flow( _.tag , _.equal( 'function' ) )
