@@ -41,6 +41,9 @@
         return value
     }
 
+    _.T = _.always( true )
+    _.F = _.always( false )
+
     _.isNull = _.flow( _.tag , _.equal( 'null' ) )
     _.isUndefined = _.flow( _.tag , _.equal( 'undefined' ) )
     _.isNumber = _.flow( _.tag , _.equal( 'number' ) )
