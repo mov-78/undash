@@ -36,7 +36,7 @@
 
     }
 
-    _.noop = function noop() {} // eslint-disable-line no-empty-function
+    _.nop = function nop() {} // eslint-disable-line no-empty-function
     _.identity = function identity( value ) {
         return value
     }
