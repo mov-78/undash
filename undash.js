@@ -20,29 +20,27 @@
         return _
     }
 
-    _.tag = function tag( value ) {
+    _.tag = function tag( val ) {
 
         var _tag
 
-        if ( value === null ) {
+        if ( val === null ) {
             return 'null'
         }
-        if ( value === void 0 ) {
+        if ( val === void 0 ) {
             return 'undefined'
         }
 
-        _tag = toString.call( value )
+        _tag = toString.call( val )
         return _tag.substring( 8 , _tag.length - 1 ).toLowerCase()
 
     }
 
     _.nop = function nop() {} // eslint-disable-line no-empty-function
-    _.identity = function identity( value ) {
-        return value
-    }
+    _.identity = function identity( val ) { return val }
 
-    _.stub = function stub( value ) {
-        return _.partial( _.identity , value )
+    _.stub = function stub( val ) {
+        return _.partial( _.identity , val )
     }
 
     _.T = _.stub( true )
