@@ -37,6 +37,9 @@
     }
 
     _.noop = function noop() {} // eslint-disable-line no-empty-function
+    _.identity = function identity( value ) {
+        return value
+    }
 
     _.isNull = _.flow( _.tag , _.equal( 'null' ) )
     _.isUndefined = _.flow( _.tag , _.equal( 'undefined' ) )
