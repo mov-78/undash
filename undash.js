@@ -46,6 +46,15 @@
     _.T = _.stub( true )
     _.F = _.stub( false )
 
+    _.not = function not( val ) {
+        return !val
+    }
+    _.and = function and( val , oth ) {
+        return val && oth
+    }
+    _.or = function or( val , oth ) {
+        return val || oth
+    }
     _.eq = _.curry( function eq( val , oth ) {
         return val === oth || ( val !== val && oth !== oth ) // eslint-disable-line no-self-compare
     } )
