@@ -48,6 +48,10 @@
     _.T = _.stub( true )
     _.F = _.stub( false )
 
+    _.eq = _.curry( function eq( val , oth ) {
+        return val === oth || ( val !== val && oth !== oth ) // eslint-disable-line no-self-compare
+    } )
+
     _.isNull = _.pipe( _.tag , _.eq( 'null' ) )
     _.isUndefined = _.pipe( _.tag , _.eq( 'undefined' ) )
     _.isNumber = _.pipe( _.tag , _.eq( 'number' ) )
