@@ -36,6 +36,8 @@
 
     }
 
+    _.noop = function noop() {} // eslint-disable-line no-empty-function
+
     _.isNull = _.flow( _.tag , _.equal( 'null' ) )
     _.isUndefined = _.flow( _.tag , _.equal( 'undefined' ) )
     _.isNumber = _.flow( _.tag , _.equal( 'number' ) )
