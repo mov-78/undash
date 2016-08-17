@@ -41,6 +41,10 @@
         return value
     }
 
+    _.always = function always( value ) {
+        return _.partial( _.identity , value )
+    }
+
     _.T = _.always( true )
     _.F = _.always( false )
 
