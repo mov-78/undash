@@ -41,12 +41,12 @@
         return value
     }
 
-    _.always = function always( value ) {
+    _.stub = function stub( value ) {
         return _.partial( _.identity , value )
     }
 
-    _.T = _.always( true )
-    _.F = _.always( false )
+    _.T = _.stub( true )
+    _.F = _.stub( false )
 
     _.isNull = _.pipe( _.tag , _.equal( 'null' ) )
     _.isUndefined = _.pipe( _.tag , _.equal( 'undefined' ) )
