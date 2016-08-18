@@ -12,6 +12,7 @@
     var _ = { VERSION : '0.0.1' }
     var prev = { _ : root._ , U : root.U }
 
+    var slice = Array.prototype.slice
     var toString = Object.prototype.toString
 
     _.noConflict = function noConflict( deep ) {
@@ -38,6 +39,19 @@
 
     _.nop = function nop() {} // eslint-disable-line no-empty-function
     _.identity = function identity( val ) { return val }
+
+    _.curry = function curry( fn , arity , ctxt ) {
+        var initial = slice.call( arguments , 3 )
+        typeof arity == 'number' || ( arity = fn.length )
+        return function next() {
+            var partial = initial.concat( slice.call( arguments ) )
+            if ( partial.length >= arity ) {
+                return fn.apply( ctxt || null , partial )
+            } else {
+                return curry.apply( null , [ fn , arity , ctxt ].concat( partial ) )
+            }
+        }
+    }
 
     _.stub = function stub( val ) {
         return _.partial( _.identity , val )
