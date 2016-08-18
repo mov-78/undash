@@ -40,17 +40,29 @@
     _.nop = function nop() {} // eslint-disable-line no-empty-function
     _.identity = function identity( val ) { return val }
 
-    _.curry = function curry( fn , arity , ctxt ) {
-        var initial = slice.call( arguments , 3 )
-        typeof arity == 'number' || ( arity = fn.length )
+    _.curry = function curry( fn ) {
+
+        var arity
+        var initial
+
+        if ( typeof fn === 'number' ) {
+            arity = fn
+            fn = arguments[ 1 ]
+            initial = slice.call( arguments , 2 )
+        } else {
+            arity = fn.length
+            initial = slice.call( arguments , 1 )
+        }
+
         return function next() {
             var partial = initial.concat( slice.call( arguments ) )
             if ( partial.length >= arity ) {
-                return fn.apply( ctxt || null , partial )
+                return fn.apply( null , partial )
             } else {
-                return curry.apply( null , [ fn , arity , ctxt ].concat( partial ) )
+                return curry.apply( null , [ arity , fn ].concat( partial ) )
             }
         }
+
     }
 
     _.stub = function stub( val ) {
