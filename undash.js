@@ -36,6 +36,8 @@
 
     }
 
+    _.placeholder = _
+
     _.nop = function nop() {} // eslint-disable-line no-empty-function
     _.identity = function identity( val ) { return val }
 
