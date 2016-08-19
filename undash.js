@@ -8,7 +8,6 @@
     }
 } )( this , function ( root ) {
 
-
     var _ = { VERSION : '0.0.1' }
     var prev = { _ : root._ , U : root.U }
 
@@ -75,12 +74,13 @@
     _.not = function not( val ) {
         return !val
     }
-    _.and = function and( val , oth ) {
+    _.and = _.curry( function and( val , oth ) {
         return val && oth
-    }
-    _.or = function or( val , oth ) {
+    } )
+    _.or = _.curry( function or( val , oth ) {
         return val || oth
-    }
+    } )
+
     _.eq = _.curry( function eq( val , oth ) {
         return val === oth || ( val !== val && oth !== oth ) // eslint-disable-line no-self-compare
     } )
