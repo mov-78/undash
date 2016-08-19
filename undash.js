@@ -43,25 +43,45 @@
 
     _.curry = function curry( fn ) {
 
+        var head
         var arity
-        var initial
 
         if ( typeof fn === 'number' ) {
             arity = fn
             fn = arguments[ 1 ]
-            initial = slice.call( arguments , 2 )
+            head = slice.call( arguments , 2 )
         } else {
             arity = fn.length
-            initial = slice.call( arguments , 1 )
+            head = slice.call( arguments , 1 )
         }
 
         return function next() {
-            var partial = initial.concat( slice.call( arguments ) )
-            if ( partial.length >= arity ) {
-                return fn.apply( null , partial )
-            } else {
-                return curry.apply( null , [ arity , fn ].concat( partial ) )
+
+            var idx
+            var len
+            var last
+            var holes = []
+            var current = head.concat( slice.call( arguments ) )
+
+            for ( idx = 0 , len = current.length ; idx < len ; idx += 1 ) {
+                current[ idx ] === _.placeholder && holes.push( idx )
             }
+            last = holes[ holes.length - 1 ] + 1
+
+            if ( holes.length === 0 && len >= arity ) {
+                return fn.apply( null , current )
+            }
+
+            if ( ( len - holes.length >= arity ) && ( len - last >= holes.length ) ) {
+                for ( idx = 0 , len = holes.length ; idx < len ; idx += 1 ) {
+                    current[ holes[ idx ] ] = current[ last + idx ]
+                }
+                current.length = last
+                return fn.apply( null , current )
+            }
+
+            return curry.apply( null , [ arity , fn ].concat( current ) )
+
         }
 
     }
