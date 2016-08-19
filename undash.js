@@ -65,9 +65,8 @@
     }
 
     _.stub = function stub( val ) {
-        return _.partial( _.identity , val )
+        return _.curry( _.identity , val )
     }
-
     _.T = _.stub( true )
     _.F = _.stub( false )
 
