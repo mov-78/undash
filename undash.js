@@ -22,7 +22,7 @@
 
     _.tag = function tag( val ) {
 
-        var _tag
+        var raw
 
         if ( val === null ) {
             return 'null'
@@ -31,8 +31,8 @@
             return 'undefined'
         }
 
-        _tag = toString.call( val )
-        return _tag.substring( 8 , _tag.length - 1 ).toLowerCase()
+        raw = toString.call( val )
+        return raw.substring( 8 , raw.length - 1 ).toLowerCase()
 
     }
 
