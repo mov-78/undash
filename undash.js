@@ -59,28 +59,22 @@
 
             var idx
             var len
-            var last
             var holes = []
             var current = head.concat( slice.call( arguments ) )
 
-            for ( idx = 0 , len = current.length ; idx < len ; idx += 1 ) {
+            for ( idx = 0 , len = current.length ; idx < len ; idx++ ) {
                 current[ idx ] === _.placeholder && holes.push( idx )
             }
-            last = holes[ holes.length - 1 ] + 1
 
-            if ( holes.length === 0 && len >= arity ) {
-                return fn.apply( null , current )
-            }
-
-            if ( ( len - holes.length >= arity ) && ( len - last >= holes.length ) ) {
-                for ( idx = 0 , len = holes.length ; idx < len ; idx += 1 ) {
-                    current[ holes[ idx ] ] = current[ last + idx ]
+            if ( current.length - arity >= holes.length ) {
+                for ( idx = 0 , len = holes.length ; idx < len ; idx++ ) {
+                    current[ holes[ idx ] ] = current[ arity + idx ]
                 }
-                current.length = last
+                current.length = arity
                 return fn.apply( null , current )
+            } else {
+                return curry.apply( null , [ arity , fn ].concat( current ) )
             }
-
-            return curry.apply( null , [ arity , fn ].concat( current ) )
 
         }
 
