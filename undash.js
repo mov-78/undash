@@ -103,7 +103,7 @@
     } )
 
     _.eq = _.curry( function eq( val , oth ) {
-        return val === oth || ( val !== val && oth !== oth ) // eslint-disable-line no-self-compare
+        return val === oth
     } )
 
     _.isNull = _.pipe( _.tag , _.eq( 'null' ) )
