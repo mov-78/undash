@@ -111,17 +111,11 @@
     _.isNumber = _.pipe( _.tag , _.eq( 'number' ) )
     _.isString = _.pipe( _.tag , _.eq( 'string' ) )
     _.isBoolean = _.pipe( _.tag , _.eq( 'boolean' ) )
-    _.isSymbol = _.pipe( _.tag , _.eq( 'symbol' ) )
     _.isObject = _.pipe( _.tag , _.eq( 'object' ) )
     _.isArray = _.pipe( _.tag , _.eq( 'array' ) )
     _.isFunction = _.pipe( _.tag , _.eq( 'function' ) )
-    _.isGenerator = _.pipe( _.tag , _.eq( 'generatorfunction' ) )
     _.isDate = _.pipe( _.tag , _.eq( 'date' ) )
     _.isRegex = _.pipe( _.tag , _.eq( 'regexp' ) )
-    _.isSet = _.pipe( _.tag , _.eq( 'set' ) )
-    _.isWeakSet = _.pipe( _.tag , _.eq( 'weakset' ) )
-    _.isMap = _.pipe( _.tag , _.eq( 'map' ) )
-    _.isWeakMap = _.pipe( _.tag , _.eq( 'weakmap' ) )
 
     return _
 
