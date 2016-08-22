@@ -155,6 +155,8 @@
     _.isDate = _.pipe( _.tag , _.eq( 'date' ) )
     _.isRegex = _.pipe( _.tag , _.eq( 'regexp' ) )
 
+    _.isNil = _.either( _.isNull , _.isUndefined )
+
     _.arity = _.curry( function arity( n , fn ) {
         return function () {
             return fn.apply( this , slice.call( arguments , 0 , n ) )
