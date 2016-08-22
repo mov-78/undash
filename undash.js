@@ -232,6 +232,9 @@
         return dividend % divisor
     } )
 
+    _.isOdd = _.pipe( _.modulo( _ , 2 ) , _.eq( 1 ) )
+    _.isEven = _.pipe( _.modulo( _ , 2 ) , _.eq( 0 ) )
+
     _.cond = function cond( pairs ) {
         return function () {
             var idx
