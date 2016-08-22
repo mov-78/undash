@@ -3,4 +3,5 @@ env :
     browser : true
 extends : pwn-es5
 rules :
+    consistent-this : off
     func-style : off

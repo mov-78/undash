@@ -96,6 +96,17 @@
 
     }
 
+    _.pipe = _.rest( function ( pipeline ) {
+        return function () {
+            var ctxt = this
+            return _.reduce(
+                function ( prev , fn ) { return fn.call( ctxt , prev ) } ,
+                pipeline[ 0 ].apply( ctxt , arguments ) ,
+                pipeline.slice( 1 )
+            )
+        }
+    } )
+
     _.bind = _.curry( function bind( ctxt , fn ) {
         return function () {
             return fn.apply( ctxt , arguments )
@@ -152,6 +163,8 @@
             return fn.apply( this , slice.call( arguments ).reverse() )
         }
     }
+
+    _.compose = _.flip( _.pipe )
 
     _.delay = _.curry( function delay( timeout , fn ) {
         return setTimeout( fn , timeout )
