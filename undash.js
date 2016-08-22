@@ -154,6 +154,19 @@
         }
     }
 
+    _.add = _.curry( function add( augend , addend ) {
+        return augend + addend
+    } )
+    _.subtract = _.curry( function subtract( minuend , subtrahend ) {
+        return minuend - subtrahend
+    } )
+    _.multiply = _.curry( function multiply( multiplier , multiplicand ) {
+        return multiplier * multiplicand
+    } )
+    _.divide = _.curry( function divide( dividend , divisor ) {
+        return dividend / divisor
+    } )
+
     return _
 
 } )
