@@ -90,10 +90,10 @@
         return !val
     }
     _.and = _.curry( function and( val , oth ) {
-        return val && oth
+        return !!( val && oth )
     } )
     _.or = _.curry( function or( val , oth ) {
-        return val || oth
+        return !!( val || oth )
     } )
 
     _.eq = _.curry( function eq( val , oth ) {
