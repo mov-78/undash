@@ -41,6 +41,15 @@
     _.nop = function nop() {} // eslint-disable-line no-empty-function
     _.identity = function identity( val ) { return val }
 
+    _.rest = function rest( fn ) {
+        var at = Math.max( fn.length - 1 , 0 )
+        return function () {
+            var args = slice.call( arguments )
+            args.length <= at && ( args.length = at + 1 )
+            return fn.apply( null , args.slice( 0 , at ).concat( [ args.slice( at ) ] ) )
+        }
+    }
+
     _.curry = function curry( fn ) {
 
         var head
