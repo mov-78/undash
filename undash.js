@@ -46,7 +46,7 @@
         return function () {
             var args = slice.call( arguments )
             args.length <= at && ( args.length = at + 1 )
-            return fn.apply( null , args.slice( 0 , at ).concat( [ args.slice( at ) ] ) )
+            return fn.apply( this , args.slice( 0 , at ).concat( [ args.slice( at ) ] ) )
         }
     }
 
@@ -80,7 +80,7 @@
                     current[ holes[ idx ] ] = current[ arity + idx ]
                 }
                 current.length = arity
-                return fn.apply( null , current )
+                return fn.apply( this , current )
             } else {
                 return curry.apply( null , [ arity , fn ].concat( current ) )
             }
