@@ -171,6 +171,18 @@
         return dividend % divisor
     } )
 
+    _.cond = function cond( pairs ) {
+        return function () {
+            var idx
+            var len
+            for ( idx = 0 , len = pairs.length ; idx < len ; idx++ ) {
+                if ( pairs[ idx ][ 0 ].apply( this , arguments ) ) {
+                    return pairs[ idx ][ 1 ].apply( this , arguments )
+                }
+            }
+        }
+    }
+
     return _
 
 } )
