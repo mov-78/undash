@@ -199,6 +199,9 @@
         return dividend / divisor
     } )
 
+    _.inc = function inc( val ) { return val + 1 }
+    _.dec = function dec( val ) { return val - 1 }
+
     _.gt = _.curry( function gt( val , oth ) {
         return val > oth
     } )
