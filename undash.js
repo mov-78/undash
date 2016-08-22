@@ -140,6 +140,14 @@
 
     _.defer = _.delay( 0 )
 
+    _.attempt = function attempt( fn ) {
+        try {
+            return fn.apply( this , arguments )
+        } catch ( error ) {
+            return error
+        }
+    }
+
     return _
 
 } )
