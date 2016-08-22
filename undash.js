@@ -133,6 +133,17 @@
         return val === oth
     } )
 
+    _.both = _.curry( function both( f1 , f2 ) {
+        return function () {
+            return f1.apply( this , arguments ) && f2.apply( this , arguments )
+        }
+    } )
+    _.either = _.curry( function either( f1 , f2 ) {
+        return function () {
+            return f1.apply( this , arguments ) || f2.apply( this , arguments )
+        }
+    } )
+
     _.isNull = _.pipe( _.tag , _.eq( 'null' ) )
     _.isUndefined = _.pipe( _.tag , _.eq( 'undefined' ) )
     _.isNumber = _.pipe( _.tag , _.eq( 'number' ) )
