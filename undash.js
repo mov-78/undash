@@ -80,6 +80,12 @@
 
     }
 
+    _.bind = _.curry( function bind( ctxt , fn ) {
+        return function () {
+            return fn.apply( ctxt , arguments )
+        }
+    } )
+
     _.stub = function stub( val ) {
         return _.curry( _.identity , val )
     }
