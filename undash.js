@@ -141,6 +141,12 @@
 
     _.unary = _.arity( 1 )
 
+    _.nth = function nth( n ) {
+        return function () {
+            return arguments[ n ]
+        }
+    }
+
     _.flip = function flip( fn ) {
         return function () {
             return fn.apply( this , slice.call( arguments ).reverse() )
