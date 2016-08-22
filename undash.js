@@ -167,6 +167,10 @@
         return dividend / divisor
     } )
 
+    _.modulo = _.curry( function modulo( dividend , divisor ) {
+        return dividend % divisor
+    } )
+
     return _
 
 } )
