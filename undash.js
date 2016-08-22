@@ -134,6 +134,12 @@
 
     _.unary = _.arity( 1 )
 
+    _.delay = _.curry( function delay( timeout , fn ) {
+        return setTimeout( fn , timeout )
+    } )
+
+    _.defer = _.delay( 0 )
+
     return _
 
 } )
