@@ -186,6 +186,19 @@
         return dividend / divisor
     } )
 
+    _.gt = _.curry( function gt( val , oth ) {
+        return val > oth
+    } )
+    _.lt = _.curry( function lt( val , oth ) {
+        return val < oth
+    } )
+    _.gte = _.curry( function gte( val , oth ) {
+        return val >= oth
+    } )
+    _.lte = _.curry( function lte( val , oth ) {
+        return val <= oth
+    } )
+
     _.modulo = _.curry( function modulo( dividend , divisor ) {
         return dividend % divisor
     } )
