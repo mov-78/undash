@@ -41,6 +41,13 @@
     _.nop = function nop() {} // eslint-disable-line no-empty-function
     _.identity = function identity( val ) { return val }
 
+    _.uid = ( function () {
+        var cnt = 0
+        return function uid() {
+            return cnt++ // eslint-disable-line no-plusplus
+        }
+    } )()
+
     _.rest = function rest( fn ) {
         var at = Math.max( fn.length - 1 , 0 )
         return function () {
