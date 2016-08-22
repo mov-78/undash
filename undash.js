@@ -134,6 +134,12 @@
 
     _.unary = _.arity( 1 )
 
+    _.flip = function flip( fn ) {
+        return function () {
+            return fn.apply( this , slice.call( arguments ).reverse() )
+        }
+    }
+
     _.delay = _.curry( function delay( timeout , fn ) {
         return setTimeout( fn , timeout )
     } )
