@@ -148,6 +148,12 @@
         }
     }
 
+    _.negate = function negate( fn ) {
+        return function () {
+            return !fn.apply( this , arguments )
+        }
+    }
+
     return _
 
 } )
