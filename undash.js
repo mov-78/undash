@@ -162,10 +162,14 @@
 
     _.isNil = _.either( _.isNull , _.isUndefined )
 
-    _.arity = _.curry( function arity( n , fn ) {
+    _.intercept = _.curry( function intercept( interceptor , fn ) {
         return function () {
-            return fn.apply( this , slice.call( arguments , 0 , n ) )
+            return fn.apply( this , interceptor.apply( null , arguments ) )
         }
+    } )
+
+    _.arity = _.curry( function arity( n , fn ) {
+        return _.intercept( _.rest( _.head( _ , n ) ) )( fn )
     } )
 
     _.unary = _.arity( 1 )
@@ -183,12 +187,6 @@
     }
 
     _.compose = _.flip( _.pipe )
-
-    _.intercept = _.curry( function intercept( interceptor , fn ) {
-        return function () {
-            return fn.apply( this , interceptor.apply( null , arguments ) )
-        }
-    } )
 
     _.delay = _.curry( function delay( timeout , fn ) {
         return setTimeout( fn , timeout )
