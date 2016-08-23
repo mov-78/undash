@@ -273,6 +273,19 @@
         return arr[ idx < 0 ? arr.length + idx : idx ]
     } )
 
+    _.prop = _.curry( function prop( obj , path ) {
+        var key
+        var paths = path.split( '.' )
+        while ( key = paths.shift() ) { // eslint-disable-line no-cond-assign
+            try {
+                obj = obj[ key ]
+            } catch ( error ) {
+                return void 0
+            }
+        }
+        return obj
+    } )
+
     return _
 
 } )
