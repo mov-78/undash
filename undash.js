@@ -184,6 +184,12 @@
 
     _.compose = _.flip( _.pipe )
 
+    _.intercept = _.curry( function intercept( interceptor , fn ) {
+        return function () {
+            return fn.apply( this , interceptor.apply( null , arguments ) )
+        }
+    } )
+
     _.delay = _.curry( function delay( timeout , fn ) {
         return setTimeout( fn , timeout )
     } )
