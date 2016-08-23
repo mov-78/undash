@@ -143,6 +143,11 @@
             return f1.apply( this , arguments ) || f2.apply( this , arguments )
         }
     } )
+    _.negate = function negate( fn ) {
+        return function () {
+            return !fn.apply( this , arguments )
+        }
+    }
 
     _.isNull = _.pipe( _.tag , _.eq( 'null' ) )
     _.isUndefined = _.pipe( _.tag , _.eq( 'undefined' ) )
@@ -190,12 +195,6 @@
             return fn.apply( this , arguments )
         } catch ( error ) {
             return error
-        }
-    }
-
-    _.negate = function negate( fn ) {
-        return function () {
-            return !fn.apply( this , arguments )
         }
     }
 
