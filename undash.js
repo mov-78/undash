@@ -254,6 +254,10 @@
         return slice.call( arr , arr.length - n )
     } )
 
+    _.at = _.curry( function at( arr , idx ) {
+        return arr[ idx < 0 ? arr.length + idx : idx ]
+    } )
+
     return _
 
 } )
