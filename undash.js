@@ -204,6 +204,15 @@
         }
     }
 
+    _.memoize = _.curry( function memoize( fn , resolver ) {
+        var cache = {}
+        return function () {
+            var key = resolver.apply( null , arguments )
+            key in cache || ( cache[ key ] = fn.apply( this , arguments ) )
+            return cache[ key ]
+        }
+    } )
+
     _.add = _.curry( function add( augend , addend ) {
         return augend + addend
     } )
