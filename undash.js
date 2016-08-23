@@ -175,9 +175,7 @@
     _.unary = _.arity( 1 )
 
     _.nth = function nth( n ) {
-        return function () {
-            return arguments[ n ]
-        }
+        return _.rest( _.at( _ , n ) )
     }
 
     _.flip = function flip( fn ) {
