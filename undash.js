@@ -246,6 +246,14 @@
         }
     }
 
+    _.head = _.curry( function head( arr , n ) {
+        return slice.call( arr , 0 , n )
+    } )
+
+    _.tail = _.curry( function tail( arr , n ) {
+        return slice.call( arr , arr.length - n )
+    } )
+
     return _
 
 } )
