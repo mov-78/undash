@@ -175,7 +175,7 @@
     _.unary = _.arity( 1 )
 
     _.nth = function nth( n ) {
-        return _.rest( _.at( _ , n ) )
+        return _.rest( _.at( n ) )
     }
 
     _.flip = function flip( fn ) {
@@ -260,12 +260,11 @@
     _.head = _.curry( function head( n , arr ) {
         return slice.call( arr , 0 , n )
     } )
-
     _.tail = _.curry( function tail( n , arr ) {
         return slice.call( arr , arr.length - n )
     } )
 
-    _.at = _.curry( function at( arr , idx ) {
+    _.at = _.curry( function at( idx , arr ) {
         return arr[ idx < 0 ? arr.length + idx : idx ]
     } )
 
