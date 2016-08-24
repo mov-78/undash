@@ -268,6 +268,13 @@
         return arr[ idx < 0 ? arr.length + idx : idx ]
     } )
 
+    _.take = _.curry( function take( n , arr ) {
+        return n < 0 ? _.tail( -n , arr ) : _.head( n , arr )
+    } )
+    _.drop = _.curry( function drop( n , arr ) {
+        return n < 0 ? _.head( arr.length + n , arr ) : _.tail( arr.length - n , arr )
+    } )
+
     _.prop = _.curry( function prop( path , obj ) {
         var key
         var paths = path.split( '.' )
