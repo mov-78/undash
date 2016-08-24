@@ -268,7 +268,7 @@
         return arr[ idx < 0 ? arr.length + idx : idx ]
     } )
 
-    _.prop = _.curry( function prop( obj , path ) {
+    _.prop = _.curry( function prop( path , obj ) {
         var key
         var paths = path.split( '.' )
         while ( key = paths.shift() ) { // eslint-disable-line no-cond-assign
