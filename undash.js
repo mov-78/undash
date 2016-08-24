@@ -169,7 +169,7 @@
     } )
 
     _.arity = _.curry( function arity( n , fn ) {
-        return _.intercept( _.rest( _.head( _ , n ) ) )( fn )
+        return _.intercept( _.rest( _.head( n ) ) )( fn )
     } )
 
     _.unary = _.arity( 1 )
@@ -257,11 +257,11 @@
         }
     }
 
-    _.head = _.curry( function head( arr , n ) {
+    _.head = _.curry( function head( n , arr ) {
         return slice.call( arr , 0 , n )
     } )
 
-    _.tail = _.curry( function tail( arr , n ) {
+    _.tail = _.curry( function tail( n , arr ) {
         return slice.call( arr , arr.length - n )
     } )
 
