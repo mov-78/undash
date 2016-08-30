@@ -1,7 +1,7 @@
-env :
-    amd : true
-    browser : true
-extends : pwn-es5
-rules :
-    consistent-this : off
-    func-style : off
+env:
+    amd: true
+    browser: true
+extends: pwn-es5
+rules:
+    consistent-this: off
+    func-style: off
