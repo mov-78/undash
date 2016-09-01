@@ -44,7 +44,7 @@
     _.uid = ( function () {
         var cnt = 0
         return function uid() {
-            return cnt++ // eslint-disable-line no-plusplus
+            return cnt++
         }
     } )()
 

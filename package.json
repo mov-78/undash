@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "eslint": "~3.2.2",
-    "eslint-config-pwn-es5": "~5.0.2",
+    "eslint-config-pwn-es5": "~5.0.4",
     "jasmine": "~2.4.1",
     "karma": "~1.2.0",
     "karma-jasmine": "~1.0.2"
