@@ -14,6 +14,8 @@
     var slice = Array.prototype.slice
     var toString = Object.prototype.toString
 
+    _.undash = _
+
     _.noConflict = function noConflict( deep ) {
         root._ = prev._
         deep && ( root.U = prev.U )
