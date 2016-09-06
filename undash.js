@@ -120,6 +120,7 @@
     }
     _.T = _.stub( true )
     _.F = _.stub( false )
+    _.NIL = _.stub( {} )
 
     _.not = function not( val ) {
         return !val
