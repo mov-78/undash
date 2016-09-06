@@ -277,6 +277,12 @@
         return n < 0 ? _.head( arr.length + n , arr ) : _.tail( arr.length - n , arr )
     } )
 
+    _.create = _.curry( function create( proto , props ) {
+        function Surrogate() {} // eslint-disable-line no-empty-function
+        Surrogate.prototype = proto
+        return _.assign( props , new Surrogate )
+    } )
+
     _.prop = _.curry( function prop( path , obj ) {
         var key
         var paths = path.split( '.' )
