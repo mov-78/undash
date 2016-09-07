@@ -11,8 +11,8 @@
     var _ = { VERSION : '0.0.1' }
     var prev = { _ : root._ , U : root.U }
 
-    var slice = Array.prototype.slice
-    var toString = Object.prototype.toString
+    var slice = [].slice
+    var toString = _.toString
 
     _.undash = _
 
