@@ -44,9 +44,11 @@
     _.identity = function identity( val ) { return val }
 
     _.uid = ( function () {
-        var cnt = 0
-        return function uid() {
-            return cnt++
+        var registry = {}
+        return function uid( prefix ) {
+            prefix === void 0 && ( prefix = '' )
+            prefix in registry || ( registry[ prefix ] = 0 )
+            return prefix + registry[ prefix ]++
         }
     } )()
 
