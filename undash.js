@@ -14,8 +14,6 @@
     var slice = [].slice
     var toString = _.toString
 
-    _.undash = _
-
     _.noConflict = function noConflict( deep ) {
         root._ = prev._
         deep && ( root.U = prev.U )
@@ -299,6 +297,6 @@
         return obj
     } )
 
-    return _
+    return _.undash = _ // eslint-disable-line no-return-assign
 
 } )
