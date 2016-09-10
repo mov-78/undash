@@ -23,19 +23,15 @@
     }
 
     _.tag = function tag( val ) {
-
-        var raw
-
-        if ( val === null ) {
-            return 'null'
+        switch ( val ) {
+            case null :
+                return null
+            case void 0 :
+                return 'undefined'
+            default :
+                val = toString.call( val )
+                return val.substring( 8 , val.length - 1 ).toLowerCase()
         }
-        if ( val === void 0 ) {
-            return 'undefined'
-        }
-
-        raw = toString.call( val )
-        return raw.substring( 8 , raw.length - 1 ).toLowerCase()
-
     }
 
     _.placeholder = _
