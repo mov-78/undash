@@ -34,8 +34,6 @@
         }
     }
 
-    _.placeholder = _
-
     _.nop = function nop() {}
     _.identity = function identity( val ) { return val }
 
@@ -79,7 +77,7 @@
             var current = head.concat( slice.call( arguments ) )
 
             for ( idx = 0 , len = current.length ; idx < len ; idx++ ) {
-                current[ idx ] === _.placeholder && holes.push( idx )
+                current[ idx ] === _.curry.placeholder && holes.push( idx )
             }
 
             if ( current.length - arity >= holes.length ) {
@@ -95,6 +93,8 @@
         }
 
     }
+
+    _.curry.placeholder = _
 
     _.pipe = _.rest( function ( pipeline ) {
         return function () {
