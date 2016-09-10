@@ -2,3 +2,7 @@ env:
     amd: true
     browser: true
 extends: pwn-es5
+rules:
+    no-cond-assign: off
+    no-empty-function: off
+    no-return-assign: off

@@ -1,11 +1,13 @@
 ( function ( root , factory ) {
+
     if ( typeof define === 'function' && define.amd ) {
         define( function () {
-            return root._ = root.U = factory( root ) // eslint-disable-line no-return-assign
+            return root._ = root.U = factory( root )
         } )
     } else {
         root._ = root.U = factory( root )
     }
+
 } )( this , function ( root ) {
 
     var _ = { VERSION : '0.0.1' }
@@ -38,7 +40,7 @@
 
     _.placeholder = _
 
-    _.nop = function nop() {} // eslint-disable-line no-empty-function
+    _.nop = function nop() {}
     _.identity = function identity( val ) { return val }
 
     _.uid = ( function () {
@@ -279,7 +281,7 @@
     } )
 
     _.create = _.curry( function create( proto , props ) {
-        function Surrogate() {} // eslint-disable-line no-empty-function
+        function Surrogate() {}
         Surrogate.prototype = proto
         return _.assign( props , new Surrogate )
     } )
@@ -287,7 +289,7 @@
     _.prop = _.curry( function prop( path , obj ) {
         var key
         var paths = path.split( '.' )
-        while ( key = paths.shift() ) { // eslint-disable-line no-cond-assign
+        while ( key = paths.shift() ) {
             try {
                 obj = obj[ key ]
             } catch ( error ) {
@@ -297,6 +299,6 @@
         return obj
     } )
 
-    return _.undash = _ // eslint-disable-line no-return-assign
+    return _.undash = _
 
 } )
